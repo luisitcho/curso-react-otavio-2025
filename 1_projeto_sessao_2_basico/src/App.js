@@ -1,39 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
 import { Component } from 'react';
 
 export default class App extends Component {
 
 	state = {
-		name: 'Luis Henrique',
-		counter: 0
+		posts: [
+			{
+				id: 1,
+				title: 'O título 1',
+				body: 'O corpo 1'
+			},
+			{
+				id: 2,
+				title: 'O título 2',
+				body: 'O corpo 2'
+			},
+			{
+				id: 3,
+				title: 'O título 3',
+				body: 'O corpo 3'
+			},
+
+		]
 	}
 
-	handlePClicked = () => {
-		this.setState({ name: 'Peppa' });
-	}
+	render() {
+		const { posts } = this.state;
 
-	handleAClicked = (event) => {
-		event.preventDefault();
-		const { counter } = this.state;
-		this.setState({ counter: counter + 1 });
-	}
-	render() { 
-		const { name, counter } = this.state;
 		return (
 			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<p onClick={this.handlePClicked}>
-						{name}
-					</p>
-					<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" onClick={this.handleAClicked}>
-						Learn React
-					</a>
-					<p className="counter">{counter}</p>
-				</header>
+
+				{posts && posts.map((post) => (
+					<div key={post.id}>
+						<h3 className="title text-2xl font-bold">{post.title}</h3>
+						<p className="body font-medium">{post.body}</p>
+					</div>
+				))}
 			</div>
 		);
 	}
 }
-// export default App;
