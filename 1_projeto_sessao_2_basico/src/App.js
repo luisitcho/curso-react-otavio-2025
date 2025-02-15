@@ -18,7 +18,7 @@ export default class App extends Component {
 		const { counter } = this.state;
 		this.setState({ counter: counter + 1 });
 	}
-	render() {
+	render() { 
 		const { name, counter } = this.state;
 		return (
 			<div className="App">
