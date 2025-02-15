@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "1_projeto_sessao_2_basico",
+=======
+  "name": "2_sessao_basico",
+>>>>>>> 8eb1c117d515b783b79bef9c657d39c451e8969b
   "version": "0.1.0",
   "private": true,
   "dependencies": {
