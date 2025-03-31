@@ -1,16 +1,19 @@
 @use "./variables" as *;
 
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+    outline: 0;
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
-}
-
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
     font-family:
         system-ui,
         -apple-system,
