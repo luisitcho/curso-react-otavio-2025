@@ -1,0 +1,16 @@
+@use "../../scss/base/variables" as *;
+
+.logo {
+    &__link {
+        color: $primary-light;
+        transition: 0.5s;
+
+        &:hover {
+            filter: brightness(50%);
+        }
+        svg {
+            height: 6.4rem;
+            width: 6.4rem;
+        }
+    }
+}
