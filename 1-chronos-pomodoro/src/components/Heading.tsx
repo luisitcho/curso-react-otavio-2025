@@ -1,20 +1,17 @@
+import React from 'react';
 import styles from './Heading.module.scss';
+import 'tailwindcss';
 
 interface HeadingProps {
-    teste?: string;
-    attr?: number;
     children: React.ReactNode;
 }
 
-export function Heading(props: HeadingProps) {
-    console.log(props);
+export function Heading({ children }: HeadingProps) {
     return (
         <h1
-            className={styles.heading}
-            aria-label={props.teste}
-            aria-hidden={props.attr ? 'true' : 'false'}
+            className={`${styles.heading} flex items-center gap-5 justify-center`}
         >
-            {props.children}
+            {children}
         </h1>
     );
 }

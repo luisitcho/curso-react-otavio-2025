@@ -1,16 +1,15 @@
 import { Heading } from './components/Heading';
-
-import './App.css';
-import './scss/style.scss';
+import { TimerIcon } from 'lucide-react';
 
 export function App() {
     return (
         <>
-            <Heading attr={124} teste={'String'}>
-                Olá Mundo 1!
+            <Heading>
+                Olá Mundo 1!{' '}
+                <button>
+                    <TimerIcon />
+                </button>
             </Heading>
-            <Heading>Olá Mundo 2!</Heading>
-            <Heading>Olá Mundo 3!</Heading>
         </>
     );
 }
