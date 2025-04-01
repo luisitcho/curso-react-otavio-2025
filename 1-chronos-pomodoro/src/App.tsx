@@ -1,5 +1,6 @@
 import { Container } from './components/Container';
 import { Logo } from './components/Logo';
+import { Menu } from './components/Menu';
 
 export function App() {
     return (
@@ -9,7 +10,7 @@ export function App() {
             </Container>
 
             <Container>
-                <section>Menu</section>
+                <Menu />
             </Container>
         </>
     );
