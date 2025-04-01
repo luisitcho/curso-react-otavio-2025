@@ -1,0 +1,8 @@
+@use "../../scss/base/variables" as *;
+
+.contdown {
+    font-size: clamp(8rem, 30vw, 16rem);
+    line-height: 130%;
+    font-weight: bold;
+    text-align: center;
+}
