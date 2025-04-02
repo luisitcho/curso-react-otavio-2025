@@ -1,5 +1,6 @@
 import { Container } from './components/Container';
 import { ContDown } from './components/ContDown';
+import { Cycles } from './components/Cycles';
 import { DefaultInput } from './components/DefaultInput';
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
@@ -30,8 +31,7 @@ export function App() {
                     </fieldset>
 
                     <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                        <p>Ciclos</p>
-                        <p>0 0 0 0 0</p>
+                        <Cycles />
                     </fieldset>
 
                     <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>

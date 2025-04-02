@@ -1,0 +1,23 @@
+@use "../../scss/base/variables" as *;
+
+.cycles {
+    &__dots {
+        .item {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+
+            &__workTime {
+                background-color: $feedback-warning;
+            }
+
+            &__shortBreakTime {
+                background-color: $primary-light;
+            }
+
+            &__longBreakTime {
+                background-color: $feedback-info;
+            }
+        }
+    }
+}
