@@ -1,0 +1,30 @@
+@use "../../scss/base/variables" as *;
+
+.input {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 120%;
+    border: 0.2rem solid transparent;
+    border-bottom-color: $primary-light;
+    color: $text-default;
+    transition: 0.3s;
+
+    &:focus,
+    &:active {
+        border-radius: 0.8rem;
+        border-color: $primary-light;
+    }
+
+    &:disabled {
+        border-bottom-color: $disabled;
+        color: $text-disabled;
+
+        &:focus,
+        &:active {
+            border-radius: 0px;
+            border-color: transparent;
+            border-bottom-color: $disabled;
+        }
+    }
+}
