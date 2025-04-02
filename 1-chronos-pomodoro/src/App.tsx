@@ -22,7 +22,7 @@ export function App() {
             <Container>
                 <form className='form flex flex-col justify-center gap-4'>
                     <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                        <DefaultInput id='texto' type='text' />
+                        <DefaultInput label='task' id='texto' type='text' />
                     </fieldset>
 
                     <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
