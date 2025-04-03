@@ -1,6 +1,8 @@
+import { PlayCircleIcon } from 'lucide-react';
 import { Container } from './components/Container';
 import { ContDown } from './components/ContDown';
 import { Cycles } from './components/Cycles';
+import { DefaultButton } from './components/DefaultButton';
 import { DefaultInput } from './components/DefaultInput';
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
@@ -36,6 +38,7 @@ export function App() {
 
                     <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
                         <button type='submit'>Enviar</button>
+                        <DefaultButton icon={<PlayCircleIcon />} color='green' />
                     </fieldset>
                 </form>
             </Container>

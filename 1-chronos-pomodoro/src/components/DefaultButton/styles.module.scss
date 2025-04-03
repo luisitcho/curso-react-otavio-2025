@@ -1,0 +1,29 @@
+@use "../../scss/base/variables" as *;
+
+.button {
+    cursor: pointer;
+    width: 100%;
+    max-width: 20rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    transition: 0.5s;
+
+    &.green {
+        background-color: $primary-light;
+        color: $text-over-primary;
+    }
+
+    &.red {
+        background-color: $feedback-error;
+        color: $text-over-error;
+    }
+
+    &:hover {
+        filter: brightness(50%);
+    }
+
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}
