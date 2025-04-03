@@ -1,0 +1,12 @@
+@use "../../scss/base/variables" as *;
+
+.footer {
+    &__link {
+        color: $text-muted;
+        transition: 0.5s;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
