@@ -1,23 +1,17 @@
 import { Container } from '../../components/Container';
 import { ContDown } from '../../components/ContDown';
 import { Form } from '../../components/Form';
-import { TaskStateModel } from '../../models/TaskStateModel';
 import { MainTemplate } from '../../templates/MainTemplate';
 
-export type HomeProps = {
-    state: TaskStateModel;
-    setState: React.Dispatch<React.SetStateAction<TaskStateModel>>;
-};
-
-export function Home(props: HomeProps) {
+export function Home() {
     return (
         <MainTemplate>
             <Container>
-                <ContDown {...props} />
+                <ContDown />
             </Container>
 
             <Container>
-                <Form {...props} />
+                <Form />
             </Container>
         </MainTemplate>
     );

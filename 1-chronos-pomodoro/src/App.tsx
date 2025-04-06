@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { Home } from './pages/Home';
 import { TaskStateModel } from './models/TaskStateModel';
 
 import './scss/base/_reboot.scss';
 import './main.css';
+import { TaskContext } from './contexts/TaskContext';
 
 const initialState: TaskStateModel = {
     tasks: [],
@@ -19,8 +19,9 @@ const initialState: TaskStateModel = {
 };
 
 export function App() {
-    const [state, setState] = useState(initialState);
-
-    console.log('App', state);
-    return <Home state={state} setState={setState} />;
+    return (
+        <TaskContext.Provider value={{ chave: 'default' }}>
+            <Home />
+        </TaskContext.Provider>
+    );
 }

@@ -2,9 +2,8 @@ import { PlayCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
-import { HomeProps } from '../../pages/Home';
 
-export function Form({ state }: HomeProps) {
+export function Form() {
     return (
         <form className='form flex flex-col justify-center gap-4'>
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
@@ -12,7 +11,7 @@ export function Form({ state }: HomeProps) {
             </fieldset>
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                <p>INtervalo de {state.config.workTime}</p>
+                <p>Lorem ipsum dolor sit amet.</p>
             </fieldset>
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
