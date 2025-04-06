@@ -1,4 +1,4 @@
-import { useTaskContext } from '../../contexts/TaskContext';
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import styles from './styles.module.scss';
 
 export function ContDown() {
