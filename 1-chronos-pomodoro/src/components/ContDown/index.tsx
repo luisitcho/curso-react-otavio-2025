@@ -1,5 +1,6 @@
+import { HomeProps } from '../../pages/Home';
 import styles from './styles.module.scss';
 
-export function ContDown() {
-    return <div className={styles.contdown}>00:00</div>;
+export function ContDown({ state }: HomeProps) {
+    return <div className={styles.contdown}>{state.formattedSecondsRemaining}</div>;
 }
