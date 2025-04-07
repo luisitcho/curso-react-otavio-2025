@@ -2,6 +2,7 @@ import { PlayCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
+import { FormEvent } from 'react';
 
 export function Form() {
     function handleCreateNewTask(event: FormEvent<HTMLFormElement>): void {
