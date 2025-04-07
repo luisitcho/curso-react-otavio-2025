@@ -2,9 +2,11 @@ import { PlayCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
 export function Form() {
+    const [taskName, setTaskName] = useState('');
+
     function handleCreateNewTask(event: FormEvent<HTMLFormElement>): void {
         event.preventDefault();
         console.log(`Foi ${new Date().toLocaleDateString()}`);
@@ -16,7 +18,14 @@ export function Form() {
             onSubmit={handleCreateNewTask}
         >
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                <DefaultInput label='task' id='texto' type='text' />
+                <DefaultInput
+                    label='task'
+                    id='texto'
+                    type='text'
+                    placeholder='Digite aqui sua tarefa'
+                    value={taskName}
+                    onChange={e => setTaskName(e.target.value)}
+                />
             </fieldset>
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
