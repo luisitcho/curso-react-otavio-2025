@@ -73,9 +73,11 @@ export function Form() {
                 <p>Lorem ipsum dolor sit amet.</p>
             </fieldset>
 
-            <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                <Cycles />
-            </fieldset>
+            {state.currentCycle > 0 && (
+                <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
+                    <Cycles />
+                </fieldset>
+            )}
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
                 <button type='submit'>Enviar</button>
