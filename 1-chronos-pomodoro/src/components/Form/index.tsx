@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from 'lucide-react';
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
@@ -81,8 +81,23 @@ export function Form() {
             )}
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                <button type='submit'>Enviar</button>
-                <DefaultButton icon={<PlayCircleIcon />} color='green' />
+                {!state.activeTask ? (
+                    <DefaultButton
+                        type='submit'
+                        aria-label='Iniciar nova tarefa'
+                        title='Inicias nova tarefa'
+                        icon={<PlayCircleIcon />}
+                        color='green'
+                    />
+                ) : (
+                    <DefaultButton
+                        type='button'
+                        aria-label='Interromper tarefa atual'
+                        title='Interromper tarefa atual'
+                        icon={<StopCircleIcon />}
+                        color='red'
+                    />
+                )}
             </fieldset>
         </form>
     );
