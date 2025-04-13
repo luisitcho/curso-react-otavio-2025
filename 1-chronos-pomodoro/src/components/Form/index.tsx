@@ -54,6 +54,17 @@ export function Form() {
         });
     }
 
+    function handleInterruptTask() {
+        setState(prevState => {
+            return {
+                ...prevState,
+                activeTask: null,
+                secondsRemaining: 0,
+                formattedSecondsRemaining: '00:00',
+            };
+        });
+    }
+
     return (
         <form
             className='form flex flex-col justify-center gap-4'
@@ -81,21 +92,26 @@ export function Form() {
             )}
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                {!state.activeTask ? (
+                {!state.activeTask && (
                     <DefaultButton
                         type='submit'
                         aria-label='Iniciar nova tarefa'
                         title='Inicias nova tarefa'
-                        icon={<PlayCircleIcon />}
                         color='green'
+                        icon={<PlayCircleIcon />}
+                        key={'play-button'}
                     />
-                ) : (
+                )}
+
+                {!!state.activeTask && (
                     <DefaultButton
                         type='button'
                         aria-label='Interromper tarefa atual'
                         title='Interromper tarefa atual'
-                        icon={<StopCircleIcon />}
                         color='red'
+                        icon={<StopCircleIcon />}
+                        onClick={handleInterruptTask}
+                        key={'stop-button'}
                     />
                 )}
             </fieldset>
