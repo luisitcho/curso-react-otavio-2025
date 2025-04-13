@@ -66,6 +66,7 @@ export function Form() {
                     type='text'
                     placeholder='Digite aqui sua tarefa'
                     ref={taskNameInput}
+                    disabled={!!state.activeTask}
                 />
             </fieldset>
 
