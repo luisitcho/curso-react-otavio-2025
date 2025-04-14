@@ -8,6 +8,7 @@ import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
+import { Tips } from '../Tips';
 
 export function Form() {
     const { state, dispatch } = useTaskContext();
@@ -63,7 +64,7 @@ export function Form() {
             </fieldset>
 
             <fieldset className='fieldset flex flex-col justify-center items-center gap-4'>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <Tips />
             </fieldset>
 
             {state.currentCycle > 0 && (
