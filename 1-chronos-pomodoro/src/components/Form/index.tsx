@@ -41,6 +41,12 @@ export function Form() {
         };
 
         dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+
+        const worker = new Worker(
+            new URL('../../workers/timerWorker.js', import.meta.url),
+        );
+
+        worker.postMessage('Vaca');
     }
 
     function handleInterruptTask() {
