@@ -19,7 +19,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     useEffect(() => {
         if (!state.activeTask) {
             worker.terminate();
-            console.log('fogo');
         }
 
         worker.postMessage(state);
