@@ -13,7 +13,7 @@ self.onmessage = function (event) {
         const now = Date.now();
         const countDownSeconds = Math.floor((endDate - now) / 1000);
 
-        console.log(countDownSeconds);
+        // console.log(countDownSeconds);
         if (countDownSeconds <= 0) {
             self.postMessage(0);
             isRunning = false;
