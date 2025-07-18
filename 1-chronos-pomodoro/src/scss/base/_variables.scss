@@ -1,30 +1,32 @@
-// Gray shades
-$gray-100: #e6e9f0;
+// 🎨 Estrutura de cores do projeto
+
+// 🔹 Cores Dinâmicas (mudam entre os temas claro/escuro)
+$gray-100: #e6e9f0; // Cinza mais claro (usado para fundos no modo escuro)
 $gray-200: #cdd3e1;
 $gray-300: #aab3cc;
 $gray-400: #555f7d;
 $gray-500: #454f6a;
 $gray-600: #363d56;
-$gray-700: #272f43;
-$gray-800: #181f2e;
-$gray-900: #0a0f1a;
+$gray-700: #272f43; // Bordas e separadores
+$gray-800: #181f2e; // Fundo de cartões e áreas destacadas
+$gray-900: #0a0f1a; // Fundo principal do site
 
-// Primary colors
-$primary-light: #4de7b7;
-$primary-default: #0da170;
-$primary-dark: #065f46;
+// 🔸 Cores Fixas (não mudam entre os temas)
+$primary-light: #4de7b7; // Usado para realces suaves
+$primary-default: #0da170; // Cor principal do projeto
+$primary-dark: #065f46; // Usado em hovers e elementos ativos
 
-// Link colors
-$link-color: #10b981;
-$link-hover: #0b8a60;
+// 🔗 Links
+$link-color: #10b981; // Cor padrão dos links
+$link-hover: #0b8a60; // Cor dos links ao passar o mouse
 
-// Feedback colors
-$feedback-success: #22c55e;
-$feedback-warning: #eab308;
-$feedback-error: #991b1b;
-$feedback-info: #0ea5e9;
+// 🚦 Alertas (cores fixas, usadas para feedbacks visuais)
+$feedback-success: #22c55e; // Sucesso
+$feedback-warning: #eab308; // Alerta
+$feedback-error: #991b1b; // Erro
+$feedback-info: #0ea5e9; // Informação
 
-// Text overlay colors
+// 🎨 Texto sobre fundos coloridos
 $text-over-primary: #0a0f1a;
 $text-over-primary-dark: #e6e9f0;
 $text-over-primary-light: #0a0f1a;
@@ -33,16 +35,17 @@ $text-over-warning: #0a0f1a;
 $text-over-error: #e6e9f0;
 $text-over-info: #0a0f1a;
 
-// Text colors
+// 📝 Texto geral
 $text-default: #e6e9f0;
 $text-muted: #aab3cc;
 
-// Disabled colors
+// 🚫 Desabilitados
 $disabled: #555f7d;
 $text-disabled: #aab3cc;
 
-// Light Theme Overrides
+// 🌞 Modo Claro - sobrescreve variáveis dinâmicas
 [data-theme="light"] {
+    // Cinzas invertidos
     $gray-100: #0a0f1a;
     $gray-200: #181f2e;
     $gray-300: #272f43;
@@ -53,9 +56,34 @@ $text-disabled: #aab3cc;
     $gray-800: #cdd3e1;
     $gray-900: #e6e9f0;
 
+    // Texto
     $text-default: #0a0f1a;
     $text-muted: #272f43;
 
+    // Links
     $link-color: #0b8a60;
     $link-hover: #065f46;
+
+    // Toastify no modo claro
+    // As variáveis precisam estar no :root, então não são SCSS aqui
+}
+
+// 🔔 Toastify: exporta variáveis SCSS como custom properties (necessário pro Toastify funcionar)
+:root {
+    --toastify-color-light: #{$text-default};
+    --toastify-color-dark: #{$text-default};
+    --toastify-color-info: #{$feedback-info};
+    --toastify-color-success: #{$feedback-success};
+    --toastify-color-warning: #{$feedback-warning};
+    --toastify-color-error: #{$feedback-error};
+    --toastify-text-color-light: #0a0f1a;
+    --toastify-text-color-dark: #e6e9f0;
+    --toastify-color-progress-light: #{$primary-default};
+    --toastify-color-progress-dark: #{$primary-default};
+}
+
+:root[data-theme="light"] {
+    --toastify-color-light: #0a0f1a;
+    --toastify-text-color-light: #e6e9f0;
+    --toastify-text-color-dark: #e6e9f0;
 }
