@@ -11,7 +11,6 @@ import { getTaskStatus } from '../../utils/getTaskStatus';
 
 export function History() {
     const { state } = useTaskContext();
-    console.log(state.tasks);
 
     return (
         <MainTemplate>
@@ -44,14 +43,19 @@ export function History() {
 
                         <tbody>
                             {state.tasks.map(task => {
-                                console.log(task);
+                                const taskTypeDictionary = {
+                                    workTime: 'Foco',
+                                    shortBreakTime: 'Descanso Curto',
+                                    longBreakTime: 'Descanso Longo',
+                                };
+
                                 return (
                                     <tr key={task.id}>
                                         <td>{task.name}</td>
                                         <td>{task.duration}min</td>
                                         <td>{formatDate(task.startDate)}</td>
                                         <td>{getTaskStatus(task, state.activeTask)}</td>
-                                        <td>{task.type}</td>
+                                        <td>{taskTypeDictionary[task.type]}</td>
                                     </tr>
                                 );
                             })}
