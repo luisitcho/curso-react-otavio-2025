@@ -14,6 +14,7 @@ import { showMessage } from '../../adapters/showMessage';
 export function Form() {
     const { state, dispatch } = useTaskContext();
     const taskNameInput = useRef<HTMLInputElement>(null);
+    const lastTaskName = state.tasks[state.tasks.length - 1]?.name || '';
 
     // Ciclos
     const nextCycle = getNextCycle(state.currentCycle);
@@ -66,6 +67,7 @@ export function Form() {
                     placeholder='Digite aqui sua tarefa'
                     ref={taskNameInput}
                     disabled={!!state.activeTask}
+                    defaultValue={lastTaskName}
                 />
             </fieldset>
 
