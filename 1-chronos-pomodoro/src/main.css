@@ -123,6 +123,22 @@
     .content {
         @apply my-6;
     }
+
+    .table-responsive {
+        @apply overflow-x-auto rounded-[0.8rem];
+    }
+
+    .table {
+        @apply w-full border-collapse;
+    }
+
+    .table td {
+        @apply transition-opacity;
+    }
+
+    .table tr:hover td {
+        @apply opacity-70;
+    }
 }
 
 @layer base {

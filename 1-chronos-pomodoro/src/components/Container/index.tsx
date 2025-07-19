@@ -3,13 +3,16 @@ import React from 'react';
 
 type ContainerProps = {
     children: React.ReactNode;
+    className?: string;
 };
 
-export function Container({ children }: ContainerProps) {
+export function Container({ children, ...props }: ContainerProps) {
+    console.log();
+    console.log(props);
     return (
         <>
             <div className='container'>
-                <div className='content'>{children}</div>
+                <div className={`content ${props?.className}`}>{children}</div>
             </div>
         </>
     );

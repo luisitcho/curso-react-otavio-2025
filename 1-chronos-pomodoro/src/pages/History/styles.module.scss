@@ -1,0 +1,31 @@
+@use "../../scss/base/variables" as *;
+
+.history {
+    table {
+        // min-width: 64rem;
+        // font-size: 1.6rem;
+
+        th,
+        td {
+            border-bottom: 0.2rem solid $gray-700;
+            text-align: left;
+            padding: 1.6rem;
+        }
+
+        th {
+            background-color: $gray-600;
+
+            [data-theme="light"] & {
+                background-color: $gray-300;
+            }
+        }
+
+        td {
+            background-color: $gray-800;
+
+            [data-theme="light"] & {
+                background-color: $gray-200;
+            }
+        }
+    }
+}
