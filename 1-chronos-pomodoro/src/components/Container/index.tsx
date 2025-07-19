@@ -7,8 +7,6 @@ type ContainerProps = {
 };
 
 export function Container({ children, ...props }: ContainerProps) {
-    console.log();
-    console.log(props);
     return (
         <>
             <div className='container'>
