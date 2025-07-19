@@ -1,6 +1,8 @@
 @use "../../scss/base/variables" as *;
 
 .menu {
+    display: flex;
+
     &__item {
         background-color: $primary-light;
         color: $text-over-primary;
