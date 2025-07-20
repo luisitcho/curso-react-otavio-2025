@@ -20,7 +20,7 @@ export function MainTemplate({ children }: MainTemplateProps) {
 
             {children}
 
-            <Container>
+            <Container className='mt-auto'>
                 <Footer />
             </Container>
         </>

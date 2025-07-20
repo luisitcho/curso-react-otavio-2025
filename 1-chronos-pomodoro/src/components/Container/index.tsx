@@ -9,8 +9,8 @@ type ContainerProps = {
 export function Container({ children, ...props }: ContainerProps) {
     return (
         <>
-            <div className='container'>
-                <div className={`content ${props?.className}`}>{children}</div>
+            <div className={`container${props?.className ? ` ${props.className}` : ''}`}>
+                <div className='content'>{children}</div>
             </div>
         </>
     );

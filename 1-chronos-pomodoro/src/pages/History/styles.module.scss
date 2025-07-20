@@ -12,7 +12,6 @@
         th {
             background-color: $gray-600;
 
-            // Correto: aplica ao <th> quando o tema for light
             [data-theme="light"] & {
                 background-color: $gray-300;
             }
@@ -35,7 +34,6 @@
         td {
             background-color: $gray-800;
 
-            // Correto: aplica ao <td> quando o tema for light
             [data-theme="light"] & {
                 background-color: $gray-200;
             }
