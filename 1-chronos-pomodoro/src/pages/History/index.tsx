@@ -41,10 +41,15 @@ export function History() {
     useEffect(() => {
         if (!confirmClearHistory) return;
 
-        dispatch({ type: TaskActionTypes.RESET_STATE });
-        showMessage.success('Histórico apagado com sucesso!');
         setConfirmClearHistory(false);
+        showMessage.success('Histórico apagado com sucesso!');
     }, [confirmClearHistory, dispatch]);
+
+    useEffect(() => {
+        return () => {
+            showMessage.dismiss();
+        };
+    }, []);
 
     function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
         const newDirection = sortTasksOptions.direction === 'desc' ? 'asc' : 'desc';
@@ -66,6 +71,10 @@ export function History() {
             'Você tem certeza que deseja apagar todo o histórico?',
             confirmation => {
                 setConfirmClearHistory(confirmation);
+
+                // if (confirmation) {
+                //     dispatch({ type: TaskActionTypes.RESET_STATE });
+                // }
             },
         );
     }
