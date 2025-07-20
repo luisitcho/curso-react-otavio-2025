@@ -4,16 +4,14 @@ import { DefaultButton } from '../../components/DefaultButton';
 import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
 
-import styles from './styles.module.scss';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
 import { sortTasks, SortTasksOptions } from '../../utils/sortTasks';
 import { useEffect, useState } from 'react';
-
-import arrow from '../../../public/images/bottom-arrow.svg';
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { showMessage } from '../../adapters/showMessage';
+
+import styles from './styles.module.scss';
 
 export function History() {
     const { state, dispatch } = useTaskContext();
@@ -111,7 +109,10 @@ export function History() {
                                     >
                                         <div>
                                             Tarefa
-                                            <img src={arrow} alt='Ordenação por nome' />
+                                            <img
+                                                src='/images/bottom-arrow.svg'
+                                                alt='Ordenação por nome'
+                                            />
                                         </div>
                                     </th>
                                     <th
@@ -123,7 +124,7 @@ export function History() {
                                         <div>
                                             Duração
                                             <img
-                                                src={arrow}
+                                                src='/images/bottom-arrow.svg'
                                                 alt='Ordenação por duração'
                                             />
                                         </div>
@@ -136,7 +137,10 @@ export function History() {
                                     >
                                         <div>
                                             Data
-                                            <img src={arrow} alt='Ordenação por data' />
+                                            <img
+                                                src='/images/bottom-arrow.svg'
+                                                alt='Ordenação por data'
+                                            />
                                         </div>
                                     </th>
                                     <th>Status</th>
