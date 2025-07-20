@@ -13,9 +13,11 @@ import { useEffect, useState } from 'react';
 
 import arrow from '../../../public/images/bottom-arrow.svg';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
+import { showMessage } from '../../adapters/showMessage';
 
 export function History() {
     const { state, dispatch } = useTaskContext();
+    const [confirmClearHistory, setConfirmClearHistory] = useState(false);
     const hasTasks = state.tasks.length > 0;
     const [sortTasksOptions, setSortTasksOptions] = useState<SortTasksOptions>(() => {
         return {
@@ -36,6 +38,14 @@ export function History() {
         }));
     }, [state.tasks]);
 
+    useEffect(() => {
+        if (!confirmClearHistory) return;
+
+        dispatch({ type: TaskActionTypes.RESET_STATE });
+        showMessage.success('Histórico apagado com sucesso!');
+        setConfirmClearHistory(false);
+    }, [confirmClearHistory, dispatch]);
+
     function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
         const newDirection = sortTasksOptions.direction === 'desc' ? 'asc' : 'desc';
 
@@ -51,11 +61,13 @@ export function History() {
     }
 
     function hasndleResetHistory() {
-        if (!confirm('Você tem certeza que deseja apagar todo o histórico?')) {
-            return;
-        }
-
-        dispatch({ type: TaskActionTypes.RESET_STATE });
+        showMessage.dismiss();
+        showMessage.confirm(
+            'Você tem certeza que deseja apagar todo o histórico?',
+            confirmation => {
+                setConfirmClearHistory(confirmation);
+            },
+        );
     }
 
     return (
