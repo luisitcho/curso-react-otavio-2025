@@ -1,9 +1,15 @@
 import { Loader } from "@/Components/Loader";
+import { PostsList } from "@/Components/PostsLists/inedx";
+import { Suspense } from "react";
 
 export default function Home() {
     return (
         <>
-            <Loader classItems="h-screen w-screen fixed top-0 left-0 right-0 bottom-0"/>
+            <div className="container">
+                <Suspense fallback={<Loader />}>
+                    <PostsList></PostsList>
+                </Suspense>
+            </div>
         </>
     );
 }

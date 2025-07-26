@@ -1,32 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer {
     .loader {
         @apply flex items-center justify-center z-10 backdrop-blur-md;
+    }
+
+    .container {
+        @apply mx-auto px-[15px] w-full;
+
+        /* sm: 640px */
+        @media (min-width: 640px) {
+            @apply max-w-[640px];
+        }
+
+        /* md: 768px */
+        @media (min-width: 768px) {
+            @apply max-w-[768px];
+        }
+
+        /* lg: 1024px */
+        @media (min-width: 1024px) {
+            @apply max-w-[1024px];
+        }
+
+        /* xl: 1280px */
+        @media (min-width: 1280px) {
+            @apply max-w-[1280px];
+        }
+
+        /* 2xl: 1536px */
+        @media (min-width: 1536px) {
+            @apply max-w-[1536px];
+        }
     }
 }
