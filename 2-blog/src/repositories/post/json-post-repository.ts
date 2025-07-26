@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 const ROOT_DIR = process.cwd();
 const JSON_POSTS_PATH = resolve(ROOT_DIR, "src", "db", "seed", "posts.json");
-const SIMULATE_AWAIT = 5000;
+const SIMULATE_AWAIT = 0;
 export class JsonPostRepository implements PostRepository {
     private async simulateAwait() {
         if (SIMULATE_AWAIT <= 0) return;

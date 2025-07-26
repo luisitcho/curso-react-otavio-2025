@@ -1,9 +1,11 @@
+import { Container } from "../Container";
+
 export function Header() {
     return (
         <header className="header">
-            <div className="container">
+            <Container>
                 <h1>Header</h1>
-            </div>
+            </Container>
         </header>
     );
 }
