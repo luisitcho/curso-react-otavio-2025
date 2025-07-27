@@ -2,7 +2,7 @@ import { Container } from "@/Components/Container";
 import { Loader } from "@/Components/Loader";
 import { Heading } from "@/Components/Posts/Heading";
 import { PostImage } from "@/Components/Posts/PostImage";
-import { PostsList } from "@/Components/Posts/PostsList/inedx";
+import { PostsList } from "@/Components/Posts/PostsList";
 import { Suspense } from "react";
 
 export default function Home() {
