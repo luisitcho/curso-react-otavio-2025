@@ -1,9 +1,8 @@
 import { Container } from "@/Components/Container";
 import { Loader } from "@/Components/Loader";
 import { Heading } from "@/Components/Posts/Heading";
+import { PostImage } from "@/Components/Posts/PostImage";
 import { PostsList } from "@/Components/Posts/PostsList/inedx";
-import Image from "next/image";
-import Link from "next/link";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -12,19 +11,16 @@ export default function Home() {
             <section>
                 <Container>
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-16 group">
-                        <Link
-                            href="#"
-                            className="w-full h-full overflow-hidden rounded-xl"
-                        >
-                            <Image
-                                src="/images/bryen_0.png"
-                                width={1200}
-                                height={720}
-                                alt="Titulo do post"
-                                className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
-                                priority
-                            />
-                        </Link>
+                        <PostImage
+                            linkProps={{ href: "#" }}
+                            imageProps={{
+                                src: "/images/bryen_9.png",
+                                width: 1200,
+                                height: 720,
+                                alt: "Titulo do post",
+                                priority: true
+                            }}
+                        />
                         <div className="flex flex-col gap-2 xl:justify-center">
                             <time
                                 dateTime="2025-07-26"
