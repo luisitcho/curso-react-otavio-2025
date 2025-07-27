@@ -1,6 +1,7 @@
 import { Container } from "@/Components/Container";
 import { Loader } from "@/Components/Loader";
-import { PostsList } from "@/Components/PostsLists/inedx";
+import { Heading } from "@/Components/Posts/Heading";
+import { PostsList } from "@/Components/Posts/PostsList/inedx";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -32,9 +33,9 @@ export default function Home() {
                                 26/07/2025 10:00
                             </time>
 
-                            <h1 className="text-2xl/tight font-extrabold sm:text-4xl">
-                                <Link href="#">Lorem ipsum dolor sit amet consectetur</Link>
-                            </h1>
+                            <Heading href="#" as="h2">
+                                Lorem ipsum dolor sit amet consectetur
+                            </Heading>
 
                             <p>
                                 Lorem ipsum dolor sit amet consectetur
