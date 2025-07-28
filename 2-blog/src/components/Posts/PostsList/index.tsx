@@ -1,6 +1,6 @@
 import { postRepository } from "@/repositories/post";
 import { PostImage } from "../PostImage";
-import { Content } from "../Content";
+import { PostSummary } from "../PostSummary";
 import { Container } from "@/components/Container";
 
 export async function PostsList() {
@@ -24,11 +24,13 @@ export async function PostsList() {
                                     alt: post.title,
                                 }}
                             />
-                            <Content
+                            <PostSummary
                                 title={post.title}
                                 excerpt={post.excerpt}
-                                date={post.createdAt}
-                            ></Content>
+                                createdAt={post.createdAt}
+                                postLink={`/post/${post.slug}`}
+                                postHeading="h3"
+                            ></PostSummary>
                         </div>
                     );
                 })}

@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { Heading } from "../Heading";
 import { PostImage } from "../PostImage";
+import { PostSummary } from "../PostSummary";
 
 export function PostFeatured() {
     const post_slug = "qualquer";
@@ -19,25 +20,14 @@ export function PostFeatured() {
                         priority: true,
                     }}
                 />
-                <div className="flex flex-col gap-2 xl:justify-center">
-                    <time
-                        dateTime="2025-07-26"
-                        className="text-slate-400 text-sm/tight"
-                    >
-                        26/07/2025 10:00
-                    </time>
-
-                    <Heading href={post_link} as="h2">
-                        Lorem ipsum dolor sit amet consectetur
-                    </Heading>
-
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        In velit dolorem est dolor porro, doloribus neque,
-                        quidem mollitia doloremque, ad perspiciatis fugiat.
-                        Rerum, vel ex? Impedit ullam harum blanditiis mollitia?
-                    </p>
-                </div>
+                <PostSummary
+                    title="Lorem ipsum dolor sit amet consectetur"
+                    excerpt="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    In velit dolorem est dolor porro, doloribus neque, quidem mollitia doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis mollitia?"
+                    createdAt="2025-07-28T02:35:17.297Z"
+                    postLink={post_link}
+                    postHeading="h2"
+                ></PostSummary>
             </div>
         </Container>
     );
