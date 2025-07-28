@@ -1,5 +1,4 @@
 import { Container } from "@/components/Container";
-import { Heading } from "../Heading";
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
 
