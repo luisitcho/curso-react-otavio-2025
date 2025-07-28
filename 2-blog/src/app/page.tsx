@@ -1,6 +1,6 @@
-import { Loader } from "@/Components/Loader";
-import { PostFeatured } from "@/Components/Posts/PostFeatured";
-import { PostsList } from "@/Components/Posts/PostsList";
+import { Loader } from "@/components/Loader";
+import { PostFeatured } from "@/components/Posts/PostFeatured";
+import { PostsList } from "@/components/Posts/PostsList";
 import { Suspense } from "react";
 
 export default function Home() {

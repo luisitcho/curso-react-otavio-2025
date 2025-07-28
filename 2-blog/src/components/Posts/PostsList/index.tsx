@@ -1,7 +1,7 @@
 import { postRepository } from "@/repositories/post";
 import { PostImage } from "../PostImage";
 import { Content } from "../Content";
-import { Container } from "@/Components/Container";
+import { Container } from "@/components/Container";
 
 export async function PostsList() {
     const posts = await postRepository.findAll();
