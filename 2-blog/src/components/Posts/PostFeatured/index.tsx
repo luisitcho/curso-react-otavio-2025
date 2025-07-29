@@ -1,9 +1,13 @@
 import { Container } from "@/components/Container";
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
+import { findAllPublicPosts } from "@/lib/post/queries";
 
-export function PostFeatured() {
-    const post_slug = "qualquer";
+export async function PostFeatured() {
+    const posts = await findAllPublicPosts();
+    const post = posts[0];
+
+    const post_slug = post.slug;
     const post_link = `/post/${post_slug}`;
 
     return (
@@ -12,18 +16,17 @@ export function PostFeatured() {
                 <PostImage
                     linkProps={{ href: post_link }}
                     imageProps={{
-                        src: "/images/bryen_9.png",
+                        src: post.coverImageUrl,
                         width: 1200,
                         height: 720,
-                        alt: "Titulo do post",
+                        alt: post.title,
                         priority: true,
                     }}
                 />
                 <PostSummary
-                    title="Lorem ipsum dolor sit amet consectetur"
-                    excerpt="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    In velit dolorem est dolor porro, doloribus neque, quidem mollitia doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis mollitia?"
-                    createdAt="2025-07-28T02:35:17.297Z"
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    createdAt={post.createdAt}
                     postLink={post_link}
                     postHeading="h2"
                 ></PostSummary>

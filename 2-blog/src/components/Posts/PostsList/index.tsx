@@ -1,15 +1,15 @@
-import { postRepository } from "@/repositories/post";
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
 import { Container } from "@/components/Container";
+import { findAllPublicPosts } from "@/lib/post/queries";
 
 export async function PostsList() {
-    const posts = await postRepository.findAll();
+    const posts = await findAllPublicPosts();
 
     return (
         <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                {posts.map((post) => {
+                {posts.slice(1).map((post) => {
                     return (
                         <div
                             key={post.id}
