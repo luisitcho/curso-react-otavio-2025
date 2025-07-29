@@ -13,8 +13,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "The blog - Este é um blog com Next.js",
-    description: "%s | The Blog",
+    title: {
+        default: "The blog - Este é um blog com Next.js",
+        template: "%s | The Blog",
+    },
 };
 
 export default function RootLayout({
