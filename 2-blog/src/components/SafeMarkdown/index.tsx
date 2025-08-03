@@ -22,6 +22,20 @@ export function SafeMarkdown({ markdown, className }: SafeMarkdownProps) {
             <ReactMarkdown
                 rehypePlugins={[rehypeSanitize]}
                 remarkPlugins={[remarkGfm]}
+                components={{
+                    table: ({ node, ...props }) => {
+                        if (!node?.children) return "";
+
+                        return (
+                            <div className="overflow-x-auto">
+                                <table
+                                    className="w-full min-w-[600px]"
+                                    {...props}
+                                />
+                            </div>
+                        );
+                    },
+                }}
             >
                 {markdown}
             </ReactMarkdown>
