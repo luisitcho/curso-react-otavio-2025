@@ -2,7 +2,7 @@ import {
     formatDateTime,
     formatRelativeDateTime,
 } from "@/utils/format-datetime";
-import { Heading } from "../Heading";
+import { PostHeading } from "../PostHeading";
 
 type PostSummaryProps = {
     title: string;
@@ -29,9 +29,9 @@ export function PostSummary({
                 {formatDateTime(createdAt)}
             </time>
 
-            <Heading href={postLink} as={postHeading}>
+            <PostHeading href={postLink} as={postHeading}>
                 {title}
-            </Heading>
+            </PostHeading>
 
             <p>{excerpt}</p>
         </div>

@@ -1,19 +1,19 @@
 import Link from "next/link";
 import React from "react";
 
-type HeadingProps = {
+type PostHeadingProps = {
     children: React.ReactNode;
     href: string;
     className?: string;
     as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-export function Heading({
+export function PostHeading({
     href,
     className,
     children,
     as: Tag = "h2",
-}: HeadingProps) {
+}: PostHeadingProps) {
     const headingClassesMap = {
         h1: "text-4xl font-extrabold leading-tight sm:text-5xl transition duration-300 hover:text-gray-500",
         h2: "text-3xl font-bold leading-snug sm:text-4xl transition duration-300 hover:text-gray-500",

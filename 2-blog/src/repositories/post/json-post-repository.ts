@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 const ROOT_DIR = process.cwd();
 const JSON_POSTS_PATH = resolve(ROOT_DIR, "src", "db", "seed", "posts.json");
-const SIMULATE_AWAIT = 0;
+const SIMULATE_AWAIT = 5000;
 export class JsonPostRepository implements PostRepository {
     private async simulateAwait() {
         if (SIMULATE_AWAIT <= 0) return;
@@ -30,8 +30,6 @@ export class JsonPostRepository implements PostRepository {
     }
 
     async findById(id: string): Promise<PostModel> {
-        await this.simulateAwait();
-
         const posts = await this.findAllPublic();
         const post = posts.find((post) => post.id === id);
 
@@ -41,8 +39,6 @@ export class JsonPostRepository implements PostRepository {
     }
 
     async findBySlug(slug: string): Promise<PostModel> {
-        await this.simulateAwait();
-
         const posts = await this.findAllPublic();
         const post = posts.find((post) => post.slug === slug);
 
