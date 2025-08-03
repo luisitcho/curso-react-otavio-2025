@@ -8,7 +8,17 @@ type SafeMarkdownProps = {
 
 export function SafeMarkdown({ markdown, className }: SafeMarkdownProps) {
     return (
-        <div className={className}>
+        <div
+            className={`
+                prose prose-slate 
+                dark:prose-invert w-full max-w-none overflow-hidden
+                prose-a:transition 
+                prose-a:font-semibold 
+                prose-a:no-underline prose-a:hover:underline 
+                prose-img:mx-auto
+                lg:prose-lg
+                ${className ?? ""}`}
+        >
             <ReactMarkdown
                 rehypePlugins={[rehypeSanitize]}
                 remarkPlugins={[remarkGfm]}
