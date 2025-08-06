@@ -1,5 +1,5 @@
 import { PostModel } from "@/models/post/post-model";
-import { PostRepository } from "./post-respository";
+import { PostRepository } from "./post-repository";
 import { readFile } from "fs/promises";
 import { resolve } from "path";
 
