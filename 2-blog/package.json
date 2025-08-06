@@ -1,39 +1,42 @@
 {
-  "name": "2-blog",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "better-sqlite3": "^12.2.0",
-    "date-fns": "^4.1.0",
-    "drizzle-orm": "^0.44.4",
-    "next": "15.4.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-markdown": "^10.1.0",
-    "rehype-sanitize": "^6.0.0",
-    "remark-gfm": "^4.0.1",
-    "sass": "^1.89.2",
-    "ts-node": "^10.9.2"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@tailwindcss/typography": "^0.5.16",
-    "@types/better-sqlite3": "^7.6.13",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "drizzle-kit": "^0.31.4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.2",
-    "tailwindcss": "^4",
-    "tsx": "^4.20.3",
-    "typescript": "^5"
-  }
+    "name": "2-blog",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "better-sqlite3": "^12.2.0",
+        "date-fns": "^4.1.0",
+        "drizzle-orm": "^0.44.4",
+        "next": "15.4.2",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-markdown": "^10.1.0",
+        "rehype-sanitize": "^6.0.0",
+        "remark-gfm": "^4.0.1",
+        "sass": "^1.89.2",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/postcss": "^4",
+        "@tailwindcss/typography": "^0.5.16",
+        "@types/better-sqlite3": "^7.6.13",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "drizzle-kit": "^0.31.4",
+        "eslint": "^9",
+        "eslint-config-next": "15.4.2",
+        "tailwindcss": "^4",
+        "tsx": "^4.20.3",
+        "typescript": "^5"
+    },
+    "overrides": {
+        "esbuild": "^0.25.0"
+    }
 }
