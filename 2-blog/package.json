@@ -12,7 +12,7 @@
         "better-sqlite3": "^12.2.0",
         "date-fns": "^4.1.0",
         "drizzle-orm": "^0.44.4",
-        "next": "^15.5.9",
+        "next": "^16.1.6",
         "react": "19.1.0",
         "react-dom": "19.1.0",
         "react-markdown": "^10.1.0",
