@@ -17,3 +17,11 @@ export function formatRelativeDateTime(rawDate: string): string {
         addSuffix: true,
     });
 }
+
+export function formatHour(rawDate: number) {
+    const date = new Date(rawDate);
+
+    return format(date, "HH:mm:ss", {
+        locale: ptBR,
+    });
+}
