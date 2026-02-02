@@ -1,12 +1,14 @@
 import { formatHour } from '@/utils/format-datetime';
-import { id } from 'date-fns/locale';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
-//export const dynamic = 'force-static';
-export const dynamicParams = true;
+export const dynamic = 'force-static';
+export const revalidate = 10;
 
-export async function generateStaticParams() {
-    return [{ id: "123" }, { id: "456" }, { id: "789" }];
-}
+//export const dynamicParams = true;
+
+//export async function generateStaticParams() {
+//    return [{ id: "123" }, { id: "456" }, { id: "789" }];
+//}
 
 export default async function ExemploPage(params: { params: Promise<{ id: string }> }) {
     const hour = formatHour(Date.now());
