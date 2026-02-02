@@ -1,5 +1,4 @@
 import { formatHour } from '@/utils/format-datetime';
-import { revalidatePath, revalidateTag } from 'next/cache';
 
 export const dynamic = 'force-static';
 export const revalidate = 10;
