@@ -1,6 +1,12 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
+//import { unstable_cacheLife as cacheLife } from "next/cache";
+//import { unstable_cacheTag as cacheTag } from "next/cache";
+
+import { unstable_cacheLife } from "next/cache";
+import { unstable_cacheTag } from "next/cache";
+
 export function formatDateTime(rawDate: string): string {
     const date = new Date(rawDate);
 
@@ -24,4 +30,12 @@ export function formatHour(rawDate: number) {
     return format(date, "HH:mm:ss", {
         locale: ptBR,
     });
+}
+
+export async function formatHourCached() {
+    "use cache";
+    unstable_cacheLife("seconds");
+    unstable_cacheTag("formatHourCached");
+
+    return formatHour(Date.now());
 }

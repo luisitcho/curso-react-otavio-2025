@@ -7,5 +7,6 @@ export async function revalidateExampleAction(formData: FormData) {
     console.log("validate example action called for path:", path);
 
     //revalidatePath(path);
-    revalidateTag("random-user", "default");
+    //revalidateTag("random-user", "default");
+    revalidateTag("formatHourCached", "default");
 }

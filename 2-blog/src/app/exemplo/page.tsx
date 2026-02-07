@@ -6,7 +6,7 @@ export default async function ExemploPage() {
     const hour = formatHour(Date.now());
 
     return (
-        <main className="min-h-[600px] text-4xl font-bold">
+        <main className="min-h-150 text-4xl font-bold">
             <div>Hora: {hour}</div>
         </main>
     );
