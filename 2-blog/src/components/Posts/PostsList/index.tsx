@@ -1,7 +1,7 @@
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
 import { Container } from "@/components/Container";
-import { findAllPublicPostsCached } from "@/lib/post/queries";
+import { findAllPublicPostsCached } from "@/lib/post/queries/public";
 
 export async function PostsList() {
     const posts = await findAllPublicPostsCached();
