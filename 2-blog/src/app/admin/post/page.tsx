@@ -1,5 +1,7 @@
-import { findAllPostAdmin } from "@/lib/post/queries/admin";
+import { Loader } from "@/components/Loader";
+import PostsListAdmin from "@/components/Posts/PostsListAdmin";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -9,14 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminPostPage() {
-    const posts = await findAllPostAdmin();
     return (
-        <div className="flex h-screen items-center justify-center">
-            <h1 className="text-2xl font-bold">Admin Post Page</h1>
-
-            {posts.map((post) => {
-                return <div key={post.id}>{post.title}</div>
-            })}
-        </div>
+        <Suspense fallback={<Loader />}>
+            <PostsListAdmin />
+        </Suspense>
     );
 }
