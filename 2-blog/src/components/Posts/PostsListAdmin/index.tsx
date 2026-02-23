@@ -1,5 +1,5 @@
+import { DeletePostButton } from "@/components/Admin/DeletePostButton";
 import { findAllPostAdmin } from "@/lib/post/queries/admin";
-import { Trash2Icon } from "lucide-react";
 import Link from "next/link";
 
 export default async function PostsListAdmin() {
@@ -36,13 +36,8 @@ export default async function PostsListAdmin() {
                                     </span>
                                 )}
 
-                                <button
-                                    className="text-slate-400 hover:text-red-500 transition-colors p-2 hover:bg-red-50 rounded-full"
-                                    title={`Excluir post "${post.title}"`}
-                                    aria-label={`Excluir post "${post.title}"`}
-                                >
-                                    <Trash2Icon size={20} />
-                                </button>
+                                <DeletePostButton post={post} />
+
                             </div>
                         </div>
                     );
