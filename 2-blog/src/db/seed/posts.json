@@ -19,7 +19,7 @@
             "excerpt": "Em vez de configurar tudo manualmente, basta criar um arquivo com o nome certo e o Next.js entende que aquilo representa uma página.",
             "content": "Em vez de configurar tudo manualmente, basta criar um arquivo com o nome certo e o Next.js entende que aquilo representa uma página.",
             "coverImageUrl": "/images/bryen_6.png",
-            "published": true,
+            "published": false,
             "createdAt": "2025-04-07T00:24:38.616Z",
             "updatedAt": "2025-04-07T00:33:56.907Z",
             "author": "Marina Duarte"

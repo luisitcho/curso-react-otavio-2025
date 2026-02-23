@@ -1,1 +1,1 @@
-export const SIMULATE_AWAIT = 1000;
+export const SIMULATE_AWAIT = 100;
