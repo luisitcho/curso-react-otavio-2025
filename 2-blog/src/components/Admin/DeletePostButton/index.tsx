@@ -1,6 +1,8 @@
 'use client';
 
+import { deletePostAction } from "@/actions/post/delete-post-action";
 import { Trash2Icon } from "lucide-react";
+import { useTransition } from "react";
 
 type DeletePostButtonProps = {
     post: {
@@ -10,16 +12,40 @@ type DeletePostButtonProps = {
 }
 
 export function DeletePostButton({ post }: DeletePostButtonProps) {
+    const [isPending, startTransition] = useTransition();
+
     function handleClick() {
-        alert(`Clicou para deletar o post com ID: ${post.id}`);
+        if (!confirm(`Tem certeza que deseja excluir o post "${post.title}"?`)) {
+            return;
+        }
+        
+        startTransition(async () => {
+            const result = await deletePostAction(post.id);
+            alert(`O result é: ${result}`);
+        });
     }
 
     return (
         <button
-            className="text-slate-400 hover:text-red-500 transition-colors p-2 hover:bg-red-50 rounded-full cursor-pointer"
+            className="
+                text-slate-600
+                hover:text-red-600
+                hover:bg-red-50
+                transition-all
+                p-2
+                rounded-full
+                cursor-pointer
+
+                disabled:text-slate-300
+                disabled:opacity-60
+                disabled:cursor-not-allowed
+                disabled:hover:bg-transparent
+                disabled:hover:text-slate-300
+            "
             title={`Excluir post "${post.title}"`}
             aria-label={`Excluir post "${post.title}"`}
             onClick={handleClick}
+            disabled={isPending}
         >
             <Trash2Icon size={20} />
         </button>
