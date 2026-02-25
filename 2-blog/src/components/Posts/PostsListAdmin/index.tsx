@@ -22,7 +22,7 @@ export default async function PostsListAdmin() {
                             <div className="flex flex-col gap-1 flex-1 min-w-0">
                                 <Link
                                     href={`/admin/post/${post.id}`}
-                                    className="font-semibold text-slate-800 hover:text-blue-600 transition-colors break-words block text-lg sm:text-base"
+                                    className="font-semibold text-slate-800 hover:text-blue-600 transition-colors wrap-break-word block text-lg sm:text-base"
                                 >
                                     {post.title}
                                 </Link>
@@ -42,37 +42,6 @@ export default async function PostsListAdmin() {
                         </div>
                     );
                 })}
-
-                <div
-                    className='fixed z-50 inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center'
-
-                >
-                    <div
-                        className='bg-slate-100 p-6 rounded-lg max-w-2xl mx-6 flex flex-col gap-6 shadow-lg shadow-black/30 text-center'
-                    >
-                        <h3 className='text-xl text-slate-700 font-extrabold'>Título do diálogo</h3>
-                        <p className="text-slate-700">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti,
-                            ipsam quae laborum adipisci reprehenderit veniam delectus quos quas.
-                            Voluptates fuga, quisquam accusamus asperiores quam quo labore
-                            laborum modi similique quod?
-                        </p>
-                        <div className='flex items-center justify-around'>
-                            <button
-                                className='bg-slate-200 hover:bg-slate-300 transition text-slate-950 flex items-center justify-center py-2 px-4 rounded-lg cursor-pointer'
-                                autoFocus
-                            >
-                                Cancelar
-                            </button>
-
-                            <button
-                                className='bg-blue-500 hover:bg-blue-600 transition text-blue-50 flex items-center justify-center py-2 px-4 rounded-lg cursor-pointer'
-                            >
-                                Ok
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
