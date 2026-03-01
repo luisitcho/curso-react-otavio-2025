@@ -2,11 +2,14 @@ import { Container } from "@/components/Container";
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
 import { findAllPublicPostsCached } from "@/lib/post/queries/public";
+import { ErrorMessage } from "@/components/ErrorMessage";
 
 export async function PostFeatured() {
     const posts = await findAllPublicPostsCached();
-    const post = posts[0];
 
+    if (posts.length <= 1) return <ErrorMessage contentTitle="Ops!" content={<p>Nenhum post foi encontrado.</p>} />;
+
+    const post = posts[0];
     const post_slug = post.slug;
     const post_link = `/post/${post_slug}`;
 

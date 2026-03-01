@@ -1,3 +1,4 @@
+import { ErrorMessage } from "@/components/ErrorMessage";
 import { PostImage } from "../PostImage";
 import { PostSummary } from "../PostSummary";
 import { Container } from "@/components/Container";
@@ -5,6 +6,9 @@ import { findAllPublicPostsCached } from "@/lib/post/queries/public";
 
 export async function PostsList() {
     const posts = await findAllPublicPostsCached();
+
+    if (posts.length <= 1) return;
+
 
     return (
         <Container>

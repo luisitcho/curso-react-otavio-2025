@@ -3,13 +3,13 @@
 import React, { useEffect, useState } from "react";
 
 type ErrorMessageProps = {
-    pageTitle: string;
-    contentTitle: string;
+    pageTitle?: string;
+    contentTitle?: string;
     content: React.ReactNode;
 };
 
 export function ErrorMessage({
-    pageTitle,
+    pageTitle = '',
     contentTitle,
     content,
 }: ErrorMessageProps) {
@@ -26,7 +26,7 @@ export function ErrorMessage({
 
     return (
         <>
-            <title>{pageTitle}</title>
+            {pageTitle && <title>{pageTitle}</title>}
             <div>
                 <div
                     className="text-center flex flex-col items-center justify-center"

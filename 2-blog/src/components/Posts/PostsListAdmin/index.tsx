@@ -1,9 +1,13 @@
 import { DeletePostButton } from "@/components/Admin/DeletePostButton";
+import { ErrorMessage } from "@/components/ErrorMessage";
 import { findAllPostAdmin } from "@/lib/post/queries/admin";
 import Link from "next/link";
 
 export default async function PostsListAdmin() {
     const posts = await findAllPostAdmin();
+
+    if (posts.length <= 1) return <ErrorMessage contentTitle="Ops!" content={<p>Nenhum post foi encontrado.</p>} />;
+
 
     return (
         <div className="flex h-screen items-center justify-center">
@@ -16,7 +20,7 @@ export default async function PostsListAdmin() {
                             key={post.id}
                             className={`p-4 border rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all hover:bg-slate-50 ${isDraft
                                 ? "bg-amber-50 border-amber-200 border-dashed shadow-sm"
-                                : "bg-white border-slate-200"
+                                : "bg-white/80 border-slate-200"
                                 }`}
                         >
                             <div className="flex flex-col gap-1 flex-1 min-w-0">
