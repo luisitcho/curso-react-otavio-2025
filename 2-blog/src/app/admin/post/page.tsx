@@ -1,5 +1,5 @@
 import { Loader } from "@/components/Loader";
-import PostsListAdmin from "@/components/Posts/PostsListAdmin";
+import PostsListAdmin from "@/components/Admin/PostsListAdmin";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 
 import "./globals.css";
 import "../scss/base/globals.scss";
+import { ToastifyContainer } from "@/components/ToastifyContainer";
 
 const montserrat = Montserrat({
     variable: "--font-montserrat",
@@ -32,6 +33,8 @@ export default function RootLayout({
                 <Header />
                 {children}
                 <Footer />
+
+                <ToastifyContainer />
             </body>
         </html>
     );

@@ -13,6 +13,12 @@ export default async function PostsListAdmin() {
         <div className="flex h-screen items-center justify-center">
             <div className="container flex flex-col gap-4">
 
+                {posts.length > 0 && (
+                    <h5 className="mb-4 text-sm font-medium text-white-500">
+                        Total de {posts.length} {posts.length === 1 ? "post" : "posts"}
+                    </h5>
+                )}
+
                 {posts.map((post) => {
                     const isDraft = !post.published;
                     return (
