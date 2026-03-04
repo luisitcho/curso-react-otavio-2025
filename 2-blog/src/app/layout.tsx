@@ -28,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="pt-br" className="dark">
             <body
-                className={`${montserrat.variable} flex flex-col min-h-screen antialiased`}
+                className={`${montserrat.variable} flex flex-col min-h-dvh antialiased`}
             >
                 <Header />
                 {children}

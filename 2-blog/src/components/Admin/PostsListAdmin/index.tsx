@@ -10,7 +10,7 @@ export default async function PostsListAdmin() {
 
 
     return (
-        <div className="flex h-min-screen items-center justify-center">
+        <div className="flex min-h-dvh items-center justify-center">
             <div className="container flex flex-col gap-4">
 
                 {posts.length > 0 && (
