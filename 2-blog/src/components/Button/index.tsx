@@ -4,12 +4,15 @@ type ButtonSizes = 'sm' | 'md' | 'lg';
 type ButtonProps = {
     variant?: ButtonVariants;
     size?: ButtonSizes;
+    icon?: React.ElementType;
 } & React.ComponentProps<'button'>;
 
 export function Button({
     variant = 'default',
     size = 'md',
+    icon: Icon,
     className = '',
+    children,
     ...props
 }: ButtonProps) {
     const buttonVariants: Record<ButtonVariants, string> = {
@@ -31,5 +34,10 @@ export function Button({
         .replace(/\s+/g, ' ')
         .trim();
 
-    return <button {...props} className={buttonClasses} />;
+    return (
+        <button {...props} className={buttonClasses}>
+            {Icon && <Icon />}
+            {children}
+        </button>
+    );
 }
