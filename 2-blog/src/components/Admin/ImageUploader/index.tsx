@@ -1,14 +1,16 @@
 'use client';
 
+import { uploadImageAction } from "@/actions/upload/upload-image-action";
 import { Button } from "@/components/Button";
 import { IMAGE_UPLOADER_MAX_SIZE } from "@/lib/constants";
 import { fi } from "date-fns/locale";
 import { ImageUpIcon } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useTransition } from "react";
 import { toast } from "react-toastify";
 
 export function ImageUploader() {
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [isUploading, startTransition] = useTransition();
 
     function handleChooseFile() {
         if (!fileInputRef.current) return;
@@ -34,21 +36,22 @@ export function ImageUploader() {
         const formData = new FormData();
         formData.append("file", file);
 
-        console.log(formData.get("file")); // Verifica se o arquivo foi adicionado corretamente
+        console.log(formData.get("file")); // Verifica se o arquivo foi adicionado corretamente]
 
-        fileInputRef.current.value = ""; // Limpa o input para permitir nova seleção
+        startTransition(async () => {
+            // Aqui você pode chamar a função de upload, por exemplo:
+            // uploadImageAction(formData);
 
+            const result = await uploadImageAction(formData);
 
-        // Aqui você pode enviar o formData para o servidor usando fetch ou axios
-        // Exemplo:
-        // fetch('/api/upload', {
-        //     method: 'POST',
-        //     body: formData,
-        // }).then(response => {
-        //     // Lidar com a resposta do servidor
-        // }).catch(error => {
-        //     // Lidar com erros
-        // });
+            if (result.success) {
+                toast.success("Imagem enviada com sucesso!");
+            } else {
+                toast.error("Falha ao enviar a imagem.");
+            }
+        });
+
+        fileInputRef.current.value = "";
     }
 
     return (
