@@ -2,7 +2,7 @@
 
 import { uploadImageAction } from "@/actions/upload/upload-image-action";
 import { Button } from "@/components/Button";
-import { IMAGE_UPLOADER_MAX_SIZE } from "@/lib/constants";
+import { IMAGE_UPLOAD_MAX_SIZE } from "@/lib/constants";
 import { fi } from "date-fns/locale";
 import { ImageUpIcon } from "lucide-react";
 import { useRef, useTransition } from "react";
@@ -27,8 +27,8 @@ export function ImageUploader() {
 
         if (!file) return;
 
-        if (file.size > IMAGE_UPLOADER_MAX_SIZE) {
-            const maxSizeInKB = IMAGE_UPLOADER_MAX_SIZE / 1024;
+        if (file.size > IMAGE_UPLOAD_MAX_SIZE) {
+            const maxSizeInKB = IMAGE_UPLOAD_MAX_SIZE / 1024;
             toast.error(`O arquivo é muito grande. O tamanho máximo permitido é ${maxSizeInKB}KB.`);
 
             fileInputRef.current.value = ""; // Limpa o input para permitir nova seleção
