@@ -19,6 +19,8 @@ export function ImageUploader() {
     }
 
     function handleChange() {
+        toast.dismiss();
+
         if (!fileInputRef.current) return;
 
         const file = fileInputRef.current.files?.[0];
@@ -39,16 +41,15 @@ export function ImageUploader() {
         console.log(formData.get("file")); // Verifica se o arquivo foi adicionado corretamente]
 
         startTransition(async () => {
-            // Aqui você pode chamar a função de upload, por exemplo:
-            // uploadImageAction(formData);
+            // Aqui posso chamar a função de upload, por exemplo:
 
             const result = await uploadImageAction(formData);
 
-            if (result.success) {
-                toast.success("Imagem enviada com sucesso!");
-            } else {
-                toast.error("Falha ao enviar a imagem.");
+            if (result.error) {
+                toast.error("Falha ao enviar a imagem. " + result.error);
+                return;
             }
+            toast.success("Imagem enviada com sucesso! URL: " + result.url);
         });
 
         fileInputRef.current.value = "";
