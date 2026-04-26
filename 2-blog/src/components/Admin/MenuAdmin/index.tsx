@@ -11,6 +11,7 @@ import {
     MenuIcon,
     CircleXIcon,
     PlusIcon,
+    LogOutIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -72,12 +73,12 @@ export function MenuAdmin() {
                             </a>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link className={linkClasses} href="/admin">
                                 <LayoutDashboardIcon />
                                 Dashboard
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             <Link className={linkClasses} href="/admin/post">
@@ -86,7 +87,7 @@ export function MenuAdmin() {
                             </Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link className={linkClasses} href="/admin/categories">
                                 <FolderIcon />
                                 Categorias
@@ -105,12 +106,19 @@ export function MenuAdmin() {
                                 <SettingsIcon />
                                 Configurações
                             </Link>
-                        </li>
+                        </li>  */}
 
                         <li>
                             <Link className={linkClasses} href='/admin/post/new'>
                                 <PlusIcon />
                                 Criar post
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link className={linkClasses} href='/admin/logout'>
+                                <LogOutIcon />
+                                Sair
                             </Link>
                         </li>
                     </ul>
