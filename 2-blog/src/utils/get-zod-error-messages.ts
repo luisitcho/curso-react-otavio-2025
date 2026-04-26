@@ -1,8 +1,8 @@
-import { ZodError } from 'zod';
+import { ZodError, ZodFormattedError } from 'zod';
 
-export function getZodErrorMessages<T>(error: ZodError<T>): string[] {
+export function getZodErrorMessages<T>(error: ZodFormattedError<T>): string[] {
     return Object.values(error)
-        .map(field => {
+        .map((field: any) => {
             if (Array.isArray(field)) return field;
             return field?._errors || [];
         })
