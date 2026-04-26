@@ -23,7 +23,9 @@
         "remark-gfm": "^4.0.1",
         "sanitize-html": "^2.17.3",
         "sass": "^1.89.2",
+        "slugify": "^1.6.9",
         "ts-node": "^10.9.2",
+        "uuid": "^14.0.0",
         "zod": "^4.3.6"
     },
     "devDependencies": {
