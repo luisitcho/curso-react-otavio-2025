@@ -29,7 +29,7 @@ export default async function AdminPostIdPage({ params }: AdminPostIdPageProps) 
         <div className="flex min-h-dvh items-center justify-center">
             <div className="container">
                 <h1 className="text-2xl font-bold">Editar post</h1>
-                <ManagePostForm publicPost={publicPost} />
+                <ManagePostForm mode='update' publicPost={publicPost} />
             </div>
         </div>
     );
