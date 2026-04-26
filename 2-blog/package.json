@@ -21,8 +21,10 @@
         "react-toastify": "^11.0.5",
         "rehype-sanitize": "^6.0.0",
         "remark-gfm": "^4.0.1",
+        "sanitize-html": "^2.17.3",
         "sass": "^1.89.2",
-        "ts-node": "^10.9.2"
+        "ts-node": "^10.9.2",
+        "zod": "^4.3.6"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
@@ -32,6 +34,7 @@
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
+        "@types/sanitize-html": "^2.16.1",
         "drizzle-kit": "^0.31.4",
         "eslint": "^9",
         "eslint-config-next": "15.4.2",
