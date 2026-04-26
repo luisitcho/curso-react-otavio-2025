@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@uiw/react-md-editor": "^4.0.11",
+        "bcryptjs": "^3.0.3",
         "better-sqlite3": "^12.2.0",
         "date-fns": "^4.1.0",
         "drizzle-orm": "^0.45.2",
@@ -32,6 +33,7 @@
         "@eslint/eslintrc": "^3",
         "@tailwindcss/postcss": "^4",
         "@tailwindcss/typography": "^0.5.16",
+        "@types/bcryptjs": "^2.4.6",
         "@types/better-sqlite3": "^7.6.13",
         "@types/node": "^20",
         "@types/react": "^19",
