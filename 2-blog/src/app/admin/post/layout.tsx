@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { MenuAdmin } from "@/components/Admin/MenuAdmin";
+import { requireLoginSessionOrRedirect } from '@/lib/login/manage-login';
 
-
-export default function AdminPostLayout({
+export default async function AdminPostLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    await requireLoginSessionOrRedirect();
+
     return (
         <>
             <MenuAdmin />
