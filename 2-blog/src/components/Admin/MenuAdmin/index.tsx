@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
     HouseIcon,
     FileTextIcon,
+    HourglassIcon,
     LayoutDashboardIcon,
     FolderIcon,
     UsersIcon,
@@ -13,11 +14,13 @@ import {
     PlusIcon,
     LogOutIcon,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from 'react';
 import { usePathname } from "next/navigation";
+import { logoutAction } from "@/actions/login/logout-action";
 
 export function MenuAdmin() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isPending, startTransition] = useTransition();
     const pathname = usePathname();
 
     useEffect(() => {
@@ -35,6 +38,14 @@ export function MenuAdmin() {
         "[&>svg]:w-[16px] [&>svg]:h-[16px] px-4 flex items-center justify-start gap-2 transition-all duration-200 rounded-lg h-10 shrink-0 border border-slate-800 shadow-sm hover:bg-slate-800 hover:shadow-md";
 
     const openCloseBtnClasses = `${linkClasses} text-blue-200 italic sm:hidden`;
+
+    function handleLogout(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+        e.preventDefault();
+
+        startTransition(async () => {
+            await logoutAction();
+        });
+    }
 
     return (
         <div className="menu">
@@ -116,10 +127,21 @@ export function MenuAdmin() {
                         </li>
 
                         <li>
-                            <Link className={linkClasses} href='/admin/logout'>
-                                <LogOutIcon />
-                                Sair
-                            </Link>
+                            <a onClick={handleLogout} href='#' className={linkClasses}>
+                                {isPending && (
+                                    <>
+                                        <HourglassIcon />
+                                        Aguarde...
+                                    </>
+                                )}
+
+                                {!isPending && (
+                                    <>
+                                        <LogOutIcon />
+                                        Sair
+                                    </>
+                                )}
+                            </a>
                         </li>
                     </ul>
                 </nav>
