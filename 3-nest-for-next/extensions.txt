@@ -1,0 +1,8 @@
+Extensões instaladas em WSL: Ubuntu-22.04:
+editorconfig.editorconfig
+formulahendry.code-runner
+github.copilot-chat
+github.vscode-pull-request-github
+golang.go
+humao.rest-client
+ms-ceintl.vscode-language-pack-pt-br
