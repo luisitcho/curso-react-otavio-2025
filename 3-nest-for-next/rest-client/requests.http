@@ -8,7 +8,8 @@ Accept: application/json
 
 {
     "email": "user@example.com",
-    "password": "password"
+    "password": "password",
+    "chave-malvada": "valor-malvado"
 }
 
 ### Read one user
