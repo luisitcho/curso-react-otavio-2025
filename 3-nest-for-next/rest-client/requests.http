@@ -7,9 +7,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "email": "user@example.com",
-    "password": "password",
-    "chave-malvada": "valor-malvado"
+    "email": "user1@email.com",
+    "password": "123456"
 }
 
 ### Read one user
