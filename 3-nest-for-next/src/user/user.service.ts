@@ -11,7 +11,7 @@ export class UserService {
         @InjectRepository(User)
         private readonly userRepository: Repository<User>,
         private readonly hashingService: HashingService,
-    ) { }
+    ) {}
 
     async create(dto: CreateUserDto) {
         const exists = await this.userRepository.exists({
