@@ -1,6 +1,13 @@
 @baseUrl = http://localhost:3000
 @jwtToken = {{authLogin.response.body.accessToken}}
 
+@userNameForTesting = Luis Henrique
+@userEmailForTesting = luishenrisc1@gmail.com
+@userPasswordForTesting = 123456
+@userNewPasswordForTesting = 123456
+
+# AUTH ########################################################################
+
 ### Auth login
 # @name authLogin
 POST {{baseUrl}}/auth/login
@@ -8,14 +15,11 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "email": "luishenrisc1@gmail.com",
-    "password": "123456"
+  "email": "{{userEmailForTesting}}",
+  "password": "{{userPasswordForTesting}}"
 }
 
-### Read one user
-# @name readOneUser
-GET {{baseUrl}}/user/456
-Authorization: Bearer {{jwtToken}}
+# USER ########################################################################
 
 ### Create user
 # @name createUser
@@ -23,9 +27,9 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-  "name": "Luis Henrique",
-  "email": "luishenrisc1@gmail.com",
-  "password": "123456"
+  "name": "{{userNameForTesting}}",
+  "email": "{{userEmailForTesting}}",
+  "password": "{{userPasswordForTesting}}"
 }
 
 ### Update user
@@ -35,7 +39,8 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "email": "luishenrisc1@gmail.com"
+  "name": "{{userNameForTesting}}",
+  "email": "{{userEmailForTesting}}"
 }
 
 ### Update user password
@@ -45,6 +50,21 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "currentPassword": "123456",
-  "newPassword": "123456"
+  "currentPassword": "{{userPasswordForTesting}}",
+  "newPassword": "{{userNewPasswordForTesting}}"
 }
+
+### Read logged user
+# @name readOneUser
+GET {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
+
+### Read user by ID
+# @name readUserById
+GET {{baseUrl}}/user/456
+Authorization: Bearer {{jwtToken}}
+
+### Delete logged user
+# @name deleteOneUser
+DELETE {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
