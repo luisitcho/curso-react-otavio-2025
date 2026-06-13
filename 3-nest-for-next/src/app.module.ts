@@ -20,8 +20,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
                         type: 'better-sqlite3',
                         database: process.env.DB_DATABASE || './db.sqlite',
                         synchronize: process.env.DB_SYNCHRONIZE === '1',
-                        autoLoadEntities:
-                            process.env.DB_AUTO_LOAD_ENTITIES === '1',
+                        autoLoadEntities: process.env.DB_AUTO_LOAD_ENTITIES === '1',
+                        // entities: [User, Post]
                     };
                 }
 
@@ -41,4 +41,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     controllers: [],
     providers: [],
 })
-export class AppModule {}
+export class AppModule { }
