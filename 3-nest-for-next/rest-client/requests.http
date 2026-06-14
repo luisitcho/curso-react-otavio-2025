@@ -1,6 +1,11 @@
 @baseUrl = http://localhost:3000
 @jwtToken = {{authLogin.response.body.accessToken}}
 
+@postUuid = {{createPostOwned.response.body.id}}
+@postSlug = {{createPostOwned.response.body.slug}}
+@imagePath = {{uploadImage.response.body.url}}
+@imageUrl = {{baseUrl}}{{imagePath}}
+
 @userNameForTesting = Luis Henrique
 @userEmailForTesting = luishenrisc1@gmail.com
 @userPasswordForTesting = 123456
@@ -12,7 +17,6 @@
 # @name authLogin
 POST {{baseUrl}}/auth/login
 Content-Type: application/json
-Accept: application/json
 
 {
   "email": "{{userEmailForTesting}}",
@@ -54,17 +58,83 @@ Authorization: Bearer {{jwtToken}}
   "newPassword": "{{userNewPasswordForTesting}}"
 }
 
-### Read logged user
+### Read one user
 # @name readOneUser
 GET {{baseUrl}}/user/me
 Authorization: Bearer {{jwtToken}}
 
-### Read user by ID
-# @name readUserById
-GET {{baseUrl}}/user/456
-Authorization: Bearer {{jwtToken}}
-
-### Delete logged user
+### Delete one user
 # @name deleteOneUser
 DELETE {{baseUrl}}/user/me
 Authorization: Bearer {{jwtToken}}
+
+# POST ########################################################################
+
+### Create post owned
+# @name createPostOwned
+POST {{baseUrl}}/post/me
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+  "title": "Título do post",
+  "excerpt": "Excerto do post",
+  "content": "Conteúdo"
+}
+
+### Read all post public
+# @name readAllPostPublic
+GET {{baseUrl}}/post/
+
+### Read one post public
+# @name readOnePostPublic
+GET {{baseUrl}}/post/{{postSlug}}
+
+### Read all post owned
+# @name readAllPostOwned
+GET {{baseUrl}}/post/me
+Authorization: Bearer {{jwtToken}}
+
+### Read one post owned
+# @name readOnePostOwned
+GET {{baseUrl}}/post/me/{{postUuid}}
+Authorization: Bearer {{jwtToken}}
+
+### Update one post owned
+# @name updateOnePostOwned
+PATCH {{baseUrl}}/post/me/{{postUuid}}
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+  "title": "NOVO - Título do post",
+  "excerpt": "NOVO - Excerto",
+  "content": "NOVO - Conteúdo",
+  "published": true
+}
+
+### Delete one post owned
+# @name deleteOnePostOwned
+DELETE {{baseUrl}}/post/me/{{postUuid}}
+Authorization: Bearer {{jwtToken}}
+
+# UPLOAD ######################################################################
+
+### Upload Image
+# @name uploadImage
+POST {{baseUrl}}/upload
+Authorization: Bearer {{jwtToken}}
+Content-Type: multipart/form-data; boundary=----BryenFormBoundary
+
+------BryenFormBoundary
+Content-Disposition: form-data; name="file"; filename="exemplo.png"
+Content-Type: image/png
+
+< ../dev/images/sample-image.jpeg
+------BryenFormBoundary--
+
+### Read Image
+# @name readImage
+GET {{imageUrl}}
+
+###############################################################################
