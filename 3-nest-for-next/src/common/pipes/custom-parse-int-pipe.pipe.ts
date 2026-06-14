@@ -6,6 +6,7 @@ export class CustomParseIntPipe extends ParseIntPipe {
             exceptionFactory: (error) =>
                 new BadRequestException(
                     `O parâmetro deve ser um número inteiro válido!`,
+                    error,
                 ),
         });
     }
