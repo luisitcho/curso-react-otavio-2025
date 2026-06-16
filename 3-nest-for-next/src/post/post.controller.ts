@@ -19,7 +19,7 @@ import { UpdatePostDto } from './dto/update-post.dto';
 
 @Controller('post')
 export class PostController {
-    constructor(private readonly postService: PostService) { }
+    constructor(private readonly postService: PostService) {}
 
     @UseGuards(JwtAuthGuard)
     @Post('me')
@@ -34,7 +34,10 @@ export class PostController {
         @Req() req: AuthenticatedRequest,
         @Param('id', ParseUUIDPipe) id: string,
     ) {
-        const post = await this.postService.findOneOwnedOrFail({ id }, req.user);
+        const post = await this.postService.findOneOwnedOrFail(
+            { id },
+            req.user,
+        );
         return new PostResponseDto(post);
     }
 
@@ -42,7 +45,7 @@ export class PostController {
     @Get('me')
     async findAllOwned(@Req() req: AuthenticatedRequest) {
         const posts = await this.postService.findAllOwned(req.user);
-        return posts.map(post => new PostResponseDto(post));
+        return posts.map((post) => new PostResponseDto(post));
     }
 
     @UseGuards(JwtAuthGuard)
@@ -78,6 +81,6 @@ export class PostController {
     @Get()
     async findAllPublished() {
         const posts = await this.postService.findAll({ published: true });
-        return posts.map(post => new PostResponseDto(post));
+        return posts.map((post) => new PostResponseDto(post));
     }
 }
