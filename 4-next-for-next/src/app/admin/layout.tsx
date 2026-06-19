@@ -1,12 +1,12 @@
 import { MenuAdmin } from "@/components/Admin/MenuAdmin";
-import { requireLoginSessionOrRedirect } from '@/lib/login/manage-login';
+import { requireLoginSessionForApiOrRedirect } from '@/lib/login/manage-login';
 
 export default async function AdminPostLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    await requireLoginSessionOrRedirect();
+    await requireLoginSessionForApiOrRedirect();
 
     return (
         <>

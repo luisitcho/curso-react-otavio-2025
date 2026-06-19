@@ -6,6 +6,7 @@ import { InputText } from '@/components/InputText';
 import clsx from 'clsx';
 import { LogInIcon } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useActionState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
@@ -15,6 +16,10 @@ export function LoginForm() {
         errors: [],
     };
     const [state, action, isPending] = useActionState(loginAction, initialState);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const userChanged = searchParams.get('userChanged');
+    const created = searchParams.get('created');
 
     useEffect(() => {
         if (state.errors.length > 0) {
@@ -22,6 +27,24 @@ export function LoginForm() {
             state.errors.forEach(e => toast.error(e));
         }
     }, [state]);
+
+    useEffect(() => {
+        if (userChanged === '1') {
+            toast.dismiss();
+            toast.success('Seu usuário foi modificado. Faça login novamente.');
+            const url = new URL(window.location.href);
+            url.searchParams.delete('userChanged');
+            router.replace(url.toString());
+        }
+
+        if (created === '1') {
+            toast.dismiss();
+            toast.success('Seu usuário criado.');
+            const url = new URL(window.location.href);
+            url.searchParams.delete('created');
+            router.replace(url.toString());
+        }
+    }, [userChanged, created, router]);
 
     return (
         <div
