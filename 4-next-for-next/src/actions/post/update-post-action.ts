@@ -6,7 +6,7 @@ import {
     PublicPost,
 } from '@/dto/post/dto';
 import { verifyLoginSession } from '@/lib/login/manage-login';
-import { PostUpdateSchema } from '@/lib/post/validations';
+import { PostUpdateSchema } from '@/lib/post/schemas';
 import { postRepository } from '@/repositories/post';
 import { getZodErrorMessages } from '@/utils/get-zod-error-messages';
 import { makeRandomString } from '@/utils/make-random-string';
