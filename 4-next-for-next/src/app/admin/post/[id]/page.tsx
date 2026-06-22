@@ -1,10 +1,10 @@
 import { ManagePostForm } from '@/components/Admin/ManagePostForm';
-import { makePublicPostFromDb } from '@/dto/post/dto';
-import { findPostByIdAdmin } from '@/lib/post/queries/admin';
+import { findPostByIdFromApiAdmin } from '@/lib/post/queries/admin';
+import { PublicPostForApiSchema } from '@/lib/post/schemas';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: 'Editar post',
@@ -16,14 +16,19 @@ type AdminPostIdPageProps = {
     }>;
 };
 
-
-export default async function AdminPostIdPage({ params }: AdminPostIdPageProps) {
+export default async function AdminPostIdPage({
+    params,
+}: AdminPostIdPageProps) {
     const { id } = await params;
-    const post = await findPostByIdAdmin(id).catch(() => undefined);
+    const postRes = await findPostByIdFromApiAdmin(id);
 
-    if (!post) notFound();
+    if (!postRes.success) {
+        console.log(postRes.errors);
+        notFound();
+    }
 
-    const publicPost = makePublicPostFromDb(post)
+    const post = postRes.data;
+    const publicPost = PublicPostForApiSchema.parse(post);
 
     return (
         <div className="flex min-h-dvh items-center justify-center">

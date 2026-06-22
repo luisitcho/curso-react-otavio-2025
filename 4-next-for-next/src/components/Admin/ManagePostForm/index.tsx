@@ -5,17 +5,19 @@ import { InputCheckbox } from '@/components/InputCheckbox';
 import { InputText } from '@/components/InputText';
 import { MarkdownEditor } from '@/components/MarkdownEditor';
 import { useActionState, useEffect, useState } from 'react';
-import { makePartialPublicPost, PublicPost } from '@/dto/post/dto';
-import { createPostAction } from '@/actions/post/create-post-action';
 import { ImageUploader } from '../ImageUploader';
+import { createPostAction } from '@/actions/post/create-post-action';
 import { toast } from 'react-toastify';
 import { updatePostAction } from '@/actions/post/update-post-action';
 import { useRouter, useSearchParams } from 'next/navigation';
-
+import {
+    PublicPostForApiDto,
+    PublicPostForApiSchema,
+} from '@/lib/post/schemas';
 
 type ManagePostFormUpdateProps = {
     mode: 'update';
-    publicPost: PublicPost;
+    publicPost: PublicPostForApiDto;
 };
 
 type ManagePostFormCreateProps = {
@@ -43,7 +45,7 @@ export function ManagePostForm(props: ManagePostFormProps) {
     };
 
     const initialState = {
-        formState: makePartialPublicPost(publicPost),
+        formState: PublicPostForApiSchema.parse(publicPost || {}),
         errors: [],
     };
     const [state, action, isPending] = useActionState(
@@ -81,7 +83,6 @@ export function ManagePostForm(props: ManagePostFormProps) {
     return (
         <form action={action} className='mb-16'>
             <div className='flex flex-col gap-6'>
-
                 <InputText
                     labelText='ID'
                     name='id'
@@ -100,15 +101,6 @@ export function ManagePostForm(props: ManagePostFormProps) {
                     defaultValue={formState.slug}
                     disabled={isPending}
                     readOnly
-                />
-
-                <InputText
-                    labelText='Autor'
-                    name='author'
-                    placeholder='Digite o nome do autor'
-                    type='text'
-                    defaultValue={formState.author}
-                    disabled={isPending}
                 />
 
                 <InputText
@@ -148,11 +140,20 @@ export function ManagePostForm(props: ManagePostFormProps) {
                     disabled={isPending}
                 />
 
-                <InputCheckbox labelText='Publicar?' name='published' type='checkbox' defaultChecked={formState.published}
-                    disabled={isPending} />
+                {mode === 'update' && (
+                    <InputCheckbox
+                        labelText='Publicar?'
+                        name='published'
+                        type='checkbox'
+                        defaultChecked={formState.published}
+                        disabled={isPending}
+                    />
+                )}
 
                 <div className='mt-4'>
-                    <Button disabled={isPending} type='submit'>Enviar</Button>
+                    <Button disabled={isPending} type='submit'>
+                        Enviar
+                    </Button>
                 </div>
             </div>
         </form>
