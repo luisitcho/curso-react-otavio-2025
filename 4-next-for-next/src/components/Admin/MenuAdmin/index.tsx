@@ -13,6 +13,7 @@ import {
     CircleXIcon,
     PlusIcon,
     LogOutIcon,
+    UserPenIcon
 } from "lucide-react";
 import { useEffect, useState, useTransition } from 'react';
 import { usePathname } from "next/navigation";
@@ -118,6 +119,13 @@ export function MenuAdmin() {
                                 Configurações
                             </Link>
                         </li>  */}
+
+                        <li>
+                            <Link className={linkClasses} href='/admin/user'>
+                                <UserPenIcon />
+                                Seus dados
+                            </Link>
+                        </li>
 
                         <li>
                             <Link className={linkClasses} href='/admin/post/new'>
