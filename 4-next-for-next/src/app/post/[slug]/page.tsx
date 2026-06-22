@@ -1,8 +1,8 @@
-import { Loader } from "@/components/Loader";
-import { PostSingle } from "@/components/Posts/PostSingle";
-import { findPublicPostBySlugCached } from "@/lib/post/queries/public";
-import { Metadata } from "next";
-import { Suspense } from "react";
+import { Loader } from '@/components/Loader';
+import { SinglePost } from '@/components/SinglePost';
+import { findPublicPostBySlugFromApiCached } from '@/lib/post/queries/public';
+import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const dynamic = 'force-static';
 
@@ -14,7 +14,13 @@ export async function generateMetadata({
     params,
 }: PostSlugPageProps): Promise<Metadata> {
     const { slug } = await params;
-    const post = await findPublicPostBySlugCached(slug);
+    const postRes = await findPublicPostBySlugFromApiCached(slug);
+
+    if (!postRes.success) {
+        return {};
+    }
+
+    const post = postRes.data;
 
     return {
         title: post.title,
@@ -26,8 +32,8 @@ export default async function PostSlugPage({ params }: PostSlugPageProps) {
     const { slug } = await params;
 
     return (
-        <Suspense fallback={<Loader />}>
-            <PostSingle slug={slug} />
+        <Suspense fallback={<div className='min-h-20 mb-16'><Loader /></div>}>
+            <SinglePost slug={slug} />
         </Suspense>
     );
 }

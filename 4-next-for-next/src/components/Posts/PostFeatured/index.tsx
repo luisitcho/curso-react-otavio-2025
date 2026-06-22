@@ -1,38 +1,53 @@
 import { Container } from "@/components/Container";
+import { findAllPublicPostsFromApiCached } from '@/lib/post/queries/public';
+import { PostSummary } from '../PostSummary';
 import { PostImage } from "../PostImage";
-import { PostSummary } from "../PostSummary";
-import { findAllPublicPostsCached } from "@/lib/post/queries/public";
 import { ErrorMessage } from "@/components/ErrorMessage";
 
 export async function PostFeatured() {
-    const posts = await findAllPublicPostsCached();
+    const postsRes = await findAllPublicPostsFromApiCached();
+    const noPostsFound = (
+        <ErrorMessage
+            contentTitle='Ops 😅'
+            content='Ainda não criamos nenhum post.'
+        />
+    );
 
-    if (posts.length <= 1) return <ErrorMessage contentTitle="Ops!" content={<p>Nenhum post foi encontrado.</p>} />;
+    if (!postsRes.success) {
+        return noPostsFound;
+    }
+
+    const posts = postsRes.data;
+
+    if (posts.length <= 0) {
+        return noPostsFound;
+    }
 
     const post = posts[0];
-    const post_slug = post.slug;
-    const post_link = `/post/${post_slug}`;
-
+    const postLink = `/post/${post.slug}`;
     return (
         <Container>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-16 group">
                 <PostImage
-                    linkProps={{ href: post_link }}
+                    linkProps={{
+                        href: postLink,
+                    }}
                     imageProps={{
-                        src: post.coverImageUrl,
                         width: 1200,
                         height: 720,
+                        src: post.coverImageUrl,
                         alt: post.title,
                         priority: true,
                     }}
                 />
+
                 <PostSummary
-                    title={post.title}
-                    excerpt={post.excerpt}
+                    postLink={postLink}
+                    postHeading='h1'
                     createdAt={post.createdAt}
-                    postLink={post_link}
-                    postHeading="h2"
-                ></PostSummary>
+                    excerpt={post.excerpt}
+                    title={post.title}
+                />
             </div>
         </Container>
     );
