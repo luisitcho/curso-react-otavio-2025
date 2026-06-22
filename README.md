@@ -11,3 +11,4 @@ Os projetos incluem desde a criação de interfaces responsivas e dinâmicas at�
 * [Next.js](https://github.com/luisitcho/curso-react-otavio-2025/tree/main/2-blog) - Pasta dedicada a parte de Next.js.
 * [Nest.js](https://github.com/luisitcho/curso-react-otavio-2025/tree/main/3-nest-for-next) - Pasta dedicada a parte de Nest.js.
 * [Next.js (Adaptado)](https://github.com/luisitcho/curso-react-otavio-2025/tree/main/4-next-for-next) - Cópia da pasta blog, adaptada para usar a API em [Nest.js](https://github.com/luisitcho/curso-react-otavio-2025/tree/main/3-nest-for-next) (pasta 3) como backend.
+* [Testes Automatizados](https://github.com/luisitcho/curso-react-otavio-2025/tree/main/5-tests-nextjs-vitest-playwright) - Pasta dedicada a testes automatizados com Vitest, Playwright e Storybook em aplicações Next.js.
