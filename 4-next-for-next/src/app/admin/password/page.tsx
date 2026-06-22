@@ -1,3 +1,4 @@
+import { UpdatePasswordForm } from '@/components/Admin/UpdateUserPassword';
 import { Container } from '@/components/Container';
 import { Loader } from '@/components/Loader';
 import { Metadata } from 'next';
@@ -13,7 +14,7 @@ export default async function AdminUserPage() {
     return (
         <Suspense fallback={<Loader />}>
             <Container>
-                <h1>Update password form</h1>
+                <UpdatePasswordForm />
             </Container>
         </Suspense>
     );
