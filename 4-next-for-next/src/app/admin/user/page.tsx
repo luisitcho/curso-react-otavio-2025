@@ -1,4 +1,4 @@
-import { UpdateUserForm } from '@/components/Admin/UpdateUserForm';
+import { UpdateUser } from '@/components/Admin/UpdateUser';
 import { Container } from '@/components/Container';
 import { Loader } from '@/components/Loader';
 import { Metadata } from 'next';
@@ -14,7 +14,7 @@ export default async function AdminUserPage() {
     return (
         <Suspense fallback={<Loader />}>
             <Container>
-                <UpdateUserForm />
+                <UpdateUser />
             </Container>
         </Suspense>
     );
