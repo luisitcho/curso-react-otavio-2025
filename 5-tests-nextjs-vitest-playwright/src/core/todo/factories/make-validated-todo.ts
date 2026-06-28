@@ -3,12 +3,12 @@ import { makeNewTodo } from './make-new-todo';
 import { Todo } from '../schemas/todo.contract';
 import { sanitizeStr } from '@/utils/sanetize-str';
 
-type InvalidTodo = {
+export type InvalidTodo = {
     success: false;
     errors: string[];
 };
 
-type ValidTodo = {
+export type ValidTodo = {
     success: true;
     data: Todo;
 };
