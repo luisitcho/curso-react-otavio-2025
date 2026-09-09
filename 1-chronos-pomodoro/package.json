@@ -39,6 +39,8 @@
         "vite": "^6.2.0"
     },
     "overrides": {
-        "browserslist": "^4.28.9"
+        "browserslist": "^4.28.9",
+        "immutable": "^5.1.9",
+        "react-router": "^7.7.0"
     }
 }
